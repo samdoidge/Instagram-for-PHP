@@ -168,7 +168,7 @@ class Client {
      * @return mixed
      */
     public function getUserMedia($id = 'self', $limit = 20) {
-        return $this->_makeCall('users/' . $id . '/media/recent', ($id === 'self'), array('count' => $limit));
+        return $this->_makeCall('users/' . $id . '/media/recent', true, array('count' => $limit));
     }
 
     /**
@@ -267,7 +267,7 @@ class Client {
      * @return mixed
      */
     public function searchTags($name) {
-        return $this->_makeCall('tags/search', false, array('q' => $name));
+        return $this->_makeCall('tags/search', true, array('q' => $name));
     }
 
     /**
@@ -288,7 +288,7 @@ class Client {
      * @return mixed
      */
     public function getTagMedia($name, $limit = 20) {
-        return $this->_makeCall('tags/' . $name . '/media/recent', false, array('count' => $limit));
+        return $this->_makeCall('tags/' . $name . '/media/recent', true, array('count' => $limit));
     }
 
     /**
